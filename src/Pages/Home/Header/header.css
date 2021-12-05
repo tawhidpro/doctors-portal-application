@@ -20,6 +20,10 @@
     height: 700px;
     position: relative;
 }
+.call-to-action-btn{
+    background-color: #1CC7C1!important;
+    border: none;
+  }
 
 .header-container::after{
     height: 700px;
@@ -37,3 +41,9 @@
     background-size: cover;
     z-index: -100;
 }
+
+@media only screen and (max-width: 600px) {
+    .header-container::after{
+        display: none;
+    }
+  }

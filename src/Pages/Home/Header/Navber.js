@@ -6,6 +6,7 @@ const Navber = () => {
     return (
         <Navbar expand="lg">
         <Container>
+            <Navbar.Brand href="#home">Doctors portal</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className=" nav-ul ml-auto justify-content-end flex-grow-1">
@@ -19,6 +20,7 @@ const Navber = () => {
             </Navbar.Collapse>
         </Container>
     </Navbar>
+    
     );
 };
 

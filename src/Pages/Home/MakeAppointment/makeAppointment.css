@@ -1,0 +1,27 @@
+.make-appointment{
+    margin-top: 200px;
+    background: linear-gradient(rgba(36,41,73,.7),rgba(36,41,73,.7)),url(../../../images/appointment-bg.png);
+    height: 450px;
+    position: relative;
+    background-position: center center;
+}
+
+.doctor-img {
+    position: absolute;
+    bottom: 0;
+    left: 0; 
+    height: 600px;
+}
+
+.appointment-info h2{
+    font-size: 45px;
+}
+
+@media only screen and (max-width: 600px) {
+    .doctor-img {
+        display: none;
+    }
+    .appointment-info h2{
+        font-size: 25px;
+    }
+  }

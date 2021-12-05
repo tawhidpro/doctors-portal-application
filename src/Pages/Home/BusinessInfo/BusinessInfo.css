@@ -1,0 +1,18 @@
+.business-info{
+    margin-top: -80px;
+}
+.info-item{
+    border-radius: 3px;
+    height: 120px;
+}
+
+.info-primary{
+    background-color: #1cc7c1;
+}
+.info-dark{
+    background-color: #3a4256;
+}
+.info-icon{
+    font-size: 45px;
+    margin: 10px;
+}
