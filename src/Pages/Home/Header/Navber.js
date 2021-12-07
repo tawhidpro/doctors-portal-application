@@ -4,7 +4,7 @@ import './header.css'
 
 const Navber = () => {
     return (
-        <Navbar expand="lg">
+        <Navbar className="main-navber" expand="lg">
         <Container>
             <Navbar.Brand href="#home">Doctors portal</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -15,7 +15,7 @@ const Navber = () => {
                 <Nav.Link href="/link">Dental services</Nav.Link>
                 <Nav.Link className="text-white" href="/link">Reviews</Nav.Link>
                 <Nav.Link className="text-white" href="/link" >Blog</Nav.Link>
-                <Nav.Link className="text-white" href="/link">Contact</Nav.Link>
+                <Nav.Link className="text-white" href="/appointment">Appointment</Nav.Link>
             </Nav>
             </Navbar.Collapse>
         </Container>
