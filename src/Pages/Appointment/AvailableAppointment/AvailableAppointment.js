@@ -1,6 +1,7 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
+import AppointmetForm from '../AppointmetForm/AppointmetForm';
 
 const AvailableAppointment = ({date}) => {
     const availableBookingData = [
@@ -40,7 +41,17 @@ const AvailableAppointment = ({date}) => {
             time : '8:00 AM to 9.00 AM',
             totalSpace: 10
         }
+
 ]
+
+// modal related code 
+const [modalIsOpen, setIsOpen] =useState(false);
+    function openModal() {
+    setIsOpen(true);
+    }
+    function closeModal() {
+    setIsOpen(false);
+    }
     return (
         <Container>
             <Row className="mt-5">
@@ -52,11 +63,16 @@ const AvailableAppointment = ({date}) => {
                                 <h4 className="theme-color">{item.subject}</h4>
                                 <h6>{item.time}</h6>
                                 <p>{item.totalSpace} Space Available</p>
-                                <Button className="call-to-action-btn">Book Appointment</Button>
+                                <Button onClick={openModal} className="call-to-action-btn">Book Appointment</Button>
+                                <AppointmetForm date={date} modalIsOpen={modalIsOpen} closeModal={closeModal} />
                             </div>
                         </Col>
                     })
+                    
                 }
+               
+               
+                 
             </Row>
         </Container>
     );

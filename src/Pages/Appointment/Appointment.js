@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import AppointmentHeader from './AppointmentHeader/AppointmentHeader';
-import AvailableAppointment from './BookAppointment/AvailableAppointment';
+import AvailableAppointment from './AvailableAppointment/AvailableAppointment';
 
 
 const Appointment = () => {
