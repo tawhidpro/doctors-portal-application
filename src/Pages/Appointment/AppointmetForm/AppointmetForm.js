@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Modal from 'react-modal';
 import { useForm } from "react-hook-form";
 import { Form ,Button} from 'react-bootstrap';
@@ -16,18 +16,37 @@ const customStyles = {
 };
 Modal.setAppElement('#root');
 
-const AppointmetForm = ({modalIsOpen,closeModal,appointmentOn,date}) => {
-    // console.log(appointmentOn);
-    console.log(date);
-    
+const AppointmetForm = ({modalIsOpen,closeModal,date,appointmentOn}) => {
+
  const { register, handleSubmit, formState: { errors } } = useForm();
- const onSubmit = data => console.log('hello');
+ const onSubmit = data => {
+     data.service = appointmentOn;
+     data.appointmentTime = date;
+     data.appointmentCreatedTime = new Date() 
+     console.log(data);
+
+     fetch('http://localhost:5000/addappointment',{
+        method: 'POST',
+        headers: {
+          'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(success =>{
+        if(success){
+          alert('your appointment has been submitted');
+          closeModal()
+          // console.log(data)
+        }
+      })
+     
+ };
 
     return (
         <div>
             <Modal
                 isOpen={modalIsOpen}
-
                 onRequestClose={closeModal}
                 style={customStyles}
                 contentLabel="Example Modal"
@@ -37,13 +56,6 @@ const AppointmetForm = ({modalIsOpen,closeModal,appointmentOn,date}) => {
                 
                 
                 <Form onSubmit={handleSubmit(onSubmit)}>
-                    <Form.Select {...register("time", { required: true })} size="lg">
-                        <option disabled={true} value="Not selected" >Select time</option>
-                        <option value="1">1</option>
-                        <option value="2" >2</option>
-                        <option value="3">3</option>
-                    </Form.Select>
-                   
                     <Form.Control className="mt-2" {...register("name")} size="lg" type="text" placeholder="Your Name" />
                     <Form.Control className="mt-2" {...register("phone", { required: true })} size="lg" type="text" placeholder="Your Phone" />
                     {errors.phone && <span style={{color: 'red'}}>phone number is required</span>}

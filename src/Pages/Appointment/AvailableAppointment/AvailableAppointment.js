@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import AppointmetForm from '../AppointmetForm/AppointmetForm';
+import BookingCard from '../BookingCard/BookingCard';
 
 const AvailableAppointment = ({date}) => {
     const availableBookingData = [
@@ -44,35 +45,14 @@ const AvailableAppointment = ({date}) => {
 
 ]
 
-// modal related code 
-const [modalIsOpen, setIsOpen] =useState(false);
-    function openModal() {
-    setIsOpen(true);
-    }
-    function closeModal() {
-    setIsOpen(false);
-    }
+
     return (
         <Container>
             <Row className="mt-5">
                 <h2 className="text-center theme-color">Available Appointment on {date.toDateString()} </h2>
                 {
-                    availableBookingData.map(item =>{
-                        return <Col key={item.id} sm={6} md={4}>
-                            <div  className="booking-card  shadow mt-4 p-4 text-center">
-                                <h4 className="theme-color">{item.subject}</h4>
-                                <h6>{item.time}</h6>
-                                <p>{item.totalSpace} Space Available</p>
-                                <Button onClick={openModal} className="call-to-action-btn">Book Appointment</Button>
-                                <AppointmetForm date={date} modalIsOpen={modalIsOpen} closeModal={closeModal} />
-                            </div>
-                        </Col>
-                    })
-                    
-                }
-               
-               
-                 
+                    availableBookingData.map(booking => <BookingCard key={booking.id} date={date} booking={booking}/>)
+                } 
             </Row>
         </Container>
     );
