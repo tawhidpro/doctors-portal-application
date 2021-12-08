@@ -30,10 +30,10 @@ const BusinessInfo = () => {
     return (
         <div>
             <Container className="business-info">
-                <Row className="mb-5 ">
+                <Row className="animate__animated animate__bounce animate__repeat-2" className="mb-5 ">
                     {
                         businessInfo.map(item=>{
-                            return <Col md={4} className="text-white">
+                            return <Col  md={4} className="text-white">
                                 <div className={`d-flex  align-items-center mt-sm-2  info-item info-${item.background}`}>
                                     <div>
                                         <FontAwesomeIcon className="info-icon" icon={item.icon} />

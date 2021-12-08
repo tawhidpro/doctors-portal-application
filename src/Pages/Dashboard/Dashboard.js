@@ -26,21 +26,20 @@ const Dashboard = () => {
 
     return (
             <Row>
-                <Col md={3} >
-                    <div className="sidebar text-white p-3">
+                <Col md={3} sm={12} >
+                    <div >
                         <Sidebar/>
                     </div>
                 </Col>
-                <Col md={5} >
+                <Col md={4} sm={12} >
                     <h4>Appointment</h4>
                     <Calendar
                             onChange={handleDateChange}
                             // value={value}
                             value={selectedDate}
-                            
                         />
                 </Col>
-                <Col md={4} >
+                <Col md={4} sm={12} >
                     <CheckAppointment appointments={appointments}/>
                 </Col>
             </Row>
